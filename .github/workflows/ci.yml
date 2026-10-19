@@ -1,0 +1,14 @@
+name: Docs CI
+on:
+  pull_request:
+    branches: [develop, main]
+  push:
+    branches: [develop]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: test -s README.md && test -s ARCHITECTURE.md
